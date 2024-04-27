@@ -8,6 +8,8 @@ function Home() {
     const [notes, setNotes] = useState([]);
     const [content, setContent] = useState("");
     const [title, setTitle] = useState("");
+    const [dni, setDni] = useState("");
+    const [telefono, setTelefono] = useState("");
 
     useEffect(() => {
         getNotes();
@@ -38,7 +40,7 @@ function Home() {
     const createNote = (e) => {
         e.preventDefault();
         api
-            .post("/api/notes/", { content, title })
+            .post("/api/notes/", { content, title, dni, telefono })
             .then((res) => {
                 if (res.status === 201) alert("Note created!");
                 else alert("Failed to make note.");
@@ -62,7 +64,7 @@ function Home() {
             </div>
             <h2>Create a Note</h2>
             <form onSubmit={createNote}>
-                <label htmlFor="title">Title:</label>
+                <label htmlFor="title">Nombre y Apellido :</label>
                 <br />
                 <input
                     type="text"
@@ -72,7 +74,33 @@ function Home() {
                     onChange={(e) => setTitle(e.target.value)}
                     value={title}
                 />
-                <label htmlFor="content">Content:</label>
+                <br />
+
+                <label htmlFor="dni">DNI :</label>
+                <br />
+                <input
+                    type="text"
+                    id="dni"
+                    name="dni"
+                    required
+                    onChange={(e) => setDni(e.target.value)}
+                    value={dni}
+                />
+                <br />
+
+                <label htmlFor="telefono">Teléfono :</label>
+                <br />
+                <input
+                    type="number"
+                    id="telefono"
+                    name="telefono"
+                    required
+                    onChange={(e) => setTelefono(e.target.value)}
+                    value={telefono}
+                />
+                <br />
+
+                <label htmlFor="content">Motivo de la visita :</label>
                 <br />
                 <textarea
                     id="content"
@@ -82,8 +110,10 @@ function Home() {
                     onChange={(e) => setContent(e.target.value)}
                 ></textarea>
                 <br />
+
                 <input type="submit" value="Submit"></input>
             </form>
+
         </div>
     );
 }
