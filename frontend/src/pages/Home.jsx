@@ -10,6 +10,7 @@ function Home() {
     const [title, setTitle] = useState("");
     const [dni, setDni] = useState("");
     const [telefono, setTelefono] = useState("");
+    const [apellido, setApellido] = useState("");
 
     useEffect(() => {
         getNotes();
@@ -40,7 +41,7 @@ function Home() {
     const createNote = (e) => {
         e.preventDefault();
         api
-            .post("/api/notes/", { content, title, dni, telefono })
+            .post("/api/notes/", { content, title, dni, telefono , apellido})
             .then((res) => {
                 if (res.status === 201) alert("Note created!");
                 else alert("Failed to make note.");
@@ -62,9 +63,10 @@ function Home() {
                     <Note note={note} onDelete={deleteNote} key={note.id} />
                 ))}
             </div>
-            <h2>Create a Note</h2>
+
             <form onSubmit={createNote}>
-                <label htmlFor="title">Nombre y Apellido :</label>
+            <h2 className="h2--tittle">FORMULARIO DE VISITA</h2>
+                <label htmlFor="title">Nombre :</label>
                 <br />
                 <input
                     type="text"
@@ -73,6 +75,18 @@ function Home() {
                     required
                     onChange={(e) => setTitle(e.target.value)}
                     value={title}
+                />
+                <br />
+
+                <label htmlFor="apellido">Apellido :</label>
+                <br />
+                <input
+                    type="text"
+                    id="apellido"
+                    name="apellido"
+                    required
+                    onChange={(e) => setApellido(e.target.value)}
+                    value={apellido}
                 />
                 <br />
 

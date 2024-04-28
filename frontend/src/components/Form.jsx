@@ -13,6 +13,7 @@ function Form({ route }) {
     resolver: zodResolver(loginSchema),
   });
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(""); // Estado para almacenar el mensaje de error
   const navigate = useNavigate();
 
   const onSubmit = async ({ username, password }) => {
@@ -24,7 +25,11 @@ function Form({ route }) {
       localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
       navigate("/formulario");
     } catch (error) {
-      alert(error);
+      if (error.response && error.response.status === 401) {
+        setErrorMessage("Las credenciales son incorrectas.");
+      } else {
+        setErrorMessage("Ocurrió un error al intentar iniciar sesión. Por favor, inténtalo de nuevo más tarde.");
+      }
     } finally {
       setLoading(false);
     }
@@ -51,6 +56,8 @@ function Form({ route }) {
       {errors.password?.message && (
         <p className="error-message">{errors.password?.message}</p>
       )}
+
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <button className="form-button" type="submit">
         Iniciar sesión
