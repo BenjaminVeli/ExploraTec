@@ -40,34 +40,49 @@ function Form({ route }) {
   return (
     <div>
       <Header />
-    <form onSubmit={handleSubmit(onSubmit)} className="form-container">
-      <h1>Login</h1>
-      <input
-        className="form-input"
-        type="text"
-        {...register("username", { required: true })}
-        placeholder="Usuario"
-      />
-      {errors.username?.message && (
-        <p className="error-message">{errors.username?.message}</p>
-      )}
-      <input
-        className="form-input"
-        type="password"
-        {...register("password", { required: true })}
-        placeholder="Contraseña"
-      />
-      {errors.password?.message && (
-        <p className="error-message">{errors.password?.message}</p>
-      )}
 
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      <div className="wrapper">
+        <div className="container main">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="row">
+            <div className="col-md-6 side-image--login">
+              <div className="text">
+                <p>EXPLORATEC</p>
+              </div>
+            </div>
+            <div className="col-md-6 right">
+              <div className="input-box">
+                <h2>Iniciar sesión</h2>
+                <div className="input-field">
+                  <input className="input" required type="text" {...register("username", { required: true })} />
+                  <label >Usuario</label> 
+                  {errors.username?.message && (
+                    <p className="error-message">{errors.username?.message}</p>
+                  )}
+                </div>
+                <div className="input-field">
+                  <input className="input" required type="password" {...register("password", { required: true })} />
+                  <label >Contraseña</label> 
+                  {errors.password?.message && (
+                    <p className="error-message">{errors.password?.message}</p>
+                  )}
+                </div>
+                <div className="input-field">
+                  <button className="submit" type="submit">
+                    INGRESAR
+                  </button>
+                </div>
+                <div className="signin">
+                  <span>No tienes una cuenta? <Link to="/register">Regístrate</Link></span>
+                  {errorMessage && <p className="error-message">{errorMessage}</p>}
+                </div>
+              </div>
+            </div>   
+          </div>
+        </form>
+        </div>
+      </div>
 
-      <button className="form-button" type="submit">
-        Iniciar sesión
-      </button>
-      <p>¿No tienes una cuenta? <Link to="/register">Regístrate</Link></p>
-    </form>
     </div>
   );
 }

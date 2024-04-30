@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
-import Form from "../components/Form";
-import Registro from "../pages/Register";
 
 import "../styles/header.css";
-import arrowIcon from "../assets/arrow.svg";
 import menuIcon from "../assets/menu.svg";
 
 function Header() {

@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
-import Form from "../components/Form";
-import Registro from "../pages/Register";
 
 import "../styles/header.css";
-import arrowIcon from "../assets/arrow.svg";
 import menuIcon from "../assets/menu.svg";
 
 function Header({ handleLogout }) {
@@ -16,14 +13,12 @@ function Header({ handleLogout }) {
                     <ul className="menu__links">
 
                         <li className="menu__item menu__item--show">
-                            <a href="#" className="menu__link">Formulario<img src={arrowIcon} alt="arrow" className="menu__arrow" /></a>
-
-                            <ul className="menu__nesting">
-                                <li className="menu__inside">
-                                    <a href="#" className="menu__link menu__link--inside">Rellenar formulario</a>
-                                </li>
-                            </ul>
+                            <Link to="/formulario" className="menu__link">Formulario</Link>
                         </li> 
+
+                        <li className="menu__item">
+                            <Link to="/crearformulario" className="menu__link">Rellenar formulario</Link>
+                        </li>
 
                         <li className="menu__item">
                             <Link to="/logout" onClick={handleLogout} className="menu__link">Cerrar sesión</Link>

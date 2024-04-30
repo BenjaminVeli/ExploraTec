@@ -1,9 +1,9 @@
 import Header from "../components/Header"
 
-function NotFound() {
+function Inicio() {
     return <div>
         <Header />
     </div>
 }
 
-export default NotFound
+export default Inicio
