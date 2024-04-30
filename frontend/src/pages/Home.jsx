@@ -4,6 +4,8 @@ import api from "../api";
 import Note from "../components/Note";
 import "../styles/Home.css";
 
+import HeaderAuth from "../components/Header-auth.jsx"
+
 function Home() {
     const [notes, setNotes] = useState([]);
     const [content, setContent] = useState("");
@@ -55,8 +57,10 @@ function Home() {
     };
 
     return (
-        <div>
-            <Link to="/logout" onClick={handleLogout}>Logout</Link>
+        <div className="class--home">
+            <HeaderAuth handleLogout={handleLogout} />
+
+            {/* <Link to="/logout" onClick={handleLogout}>Logout</Link> */}
             <div>
                 <h2>Notes</h2>
                 {notes.map((note) => (

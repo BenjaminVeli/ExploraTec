@@ -1,15 +1,17 @@
-
 .note-container{
   background: #3876BF;
-  padding: 35px 80px;
+  padding: 35px 70px;
   border: 2px solid rgba(0,0,0,1);
   box-shadow: 15px 15px 1px #222831, 15px 15px 1px 2px rgba(0,0,0,1);
-  width: 350px;
+  width: 300px;
   color: #EEF5FF;
   font-family: "Inter", sans-serif;
-  /* float: left; */
-  margin-left: 20px;
-  margin-right: 20px;
+  float: left;
+  margin: 40px;
+  font-size: 14px;
+  height: 250px;
+  word-wrap: break-word;
+  overflow: auto;
 }
 
 .delete-button{
@@ -32,4 +34,23 @@
 
 .delete-button::selection{
   background: #ffc8ff;
+}
+
+.note-container::-webkit-scrollbar {
+  width: 12px;
+}
+
+.note-container::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+/* Para navegadores no basados en WebKit */
+.note-container {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.note-container::-webkit-scrollbar-track {
+  background: transparent;
 }

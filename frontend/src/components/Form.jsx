@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema } from "../schemas/auth";
 
+import Header from "../components/Header"
+
 import "../styles/Form.css";
 
 function Form({ route }) {
@@ -36,6 +38,8 @@ function Form({ route }) {
   };
 
   return (
+    <div>
+      <Header />
     <form onSubmit={handleSubmit(onSubmit)} className="form-container">
       <h1>Login</h1>
       <input
@@ -64,6 +68,7 @@ function Form({ route }) {
       </button>
       <p>¿No tienes una cuenta? <Link to="/register">Regístrate</Link></p>
     </form>
+    </div>
   );
 }
 

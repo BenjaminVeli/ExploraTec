@@ -1,3 +1,7 @@
+.class--home {
+  background-color: hsl(220, 100%, 97%);
+}
+
 div {
   font-family: Arial, sans-serif;
 }
@@ -20,16 +24,19 @@ div {
   border-radius: 5px;
 }
 
-form {
-  background-color: #fff;
+
+
+.home--form {
+  background-color: #2ace53;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   max-width: 500px;
-  margin: auto;
-}
+  /* margin: auto; */
+} 
 
-form h2 {
+
+ form h2 {
   color: #333;
   font-size: 24px;
   margin-bottom: 20px;
@@ -62,4 +69,4 @@ form input[type="submit"] {
 
 form input[type="submit"]:hover {
   background-color: #0056b3;
-}
+}  

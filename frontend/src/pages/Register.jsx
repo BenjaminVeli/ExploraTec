@@ -4,6 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { registerSchema } from "../schemas/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
+
+import Header from "../components/Header"
+
 import "../styles/Form.css"
 
 function Register() {
@@ -29,7 +32,9 @@ function Register() {
 
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="form-container">
+    <div>
+      <Header />
+      <form onSubmit={handleSubmit(onSubmit)} className="form-container">
       <h1>Register</h1>
       <input
         className="form-input"
@@ -57,6 +62,7 @@ function Register() {
       </button>
       <p>¿Ya tienes una cuenta? <Link to="/login">Inicia sesión</Link></p>
     </form>
+    </div>
   );
 }
 
