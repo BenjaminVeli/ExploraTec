@@ -43,69 +43,90 @@ function CreateForm() {
     return <div>
         <HeaderAuth />
 
-        <form onSubmit={createNote}>
-            <h2 className="h2--tittle">FORMULARIO DE VISITA</h2>
-                <label htmlFor="title">Nombre :</label>
-                <br />
-                <input
-                    type="text"
-                    id="title"
-                    name="title"
-                    required
-                    onChange={(e) => setTitle(e.target.value)}
-                    value={title}
-                />
-                <br />
+        <div className="w-full lg:w-6/12 px-4 mx-auto mt-6">
+            <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
+                <div className="rounded-t bg-white mb-0 px-6 py-6">
+                    <div className="text-center flex justify-between">
+                        <h6 className="text-blueGray-700 text-xl font-bold">
+                            FORMULARIO DE VISITA AL CAMPUS
+                        </h6>
+                    </div>
+                </div>
 
-                <label htmlFor="apellido">Apellido :</label>
-                <br />
-                <input
-                    type="text"
-                    id="apellido"
-                    name="apellido"
-                    required
-                    onChange={(e) => setApellido(e.target.value)}
-                    value={apellido}
-                />
-                <br />
+                <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
+                    <form onSubmit={createNote}>
+                        <h6 className="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+                        INFORMACIÓN
+                        </h6>
 
-                <label htmlFor="dni">DNI :</label>
-                <br />
-                <input
-                    type="text"
-                    id="dni"
-                    name="dni"
-                    required
-                    onChange={(e) => setDni(e.target.value)}
-                    value={dni}
-                />
-                <br />
+                        <div className="flex flex-wrap">
 
-                <label htmlFor="telefono">Teléfono :</label>
-                <br />
-                <input
-                    type="number"
-                    id="telefono"
-                    name="telefono"
-                    required
-                    onChange={(e) => setTelefono(e.target.value)}
-                    value={telefono}
-                />
-                <br />
+                            <div className="w-full lg:w-6/12 px-4">
+                                <div className="relative w-full mb-3">
+                                    <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
+                                        Nombre
+                                    </label>
+                                    <input type="text" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" id="title" name="title" required onChange={(e) => setTitle(e.target.value)} value={title} />
+                                </div>
+                            </div>
 
-                <label htmlFor="content">Motivo de la visita :</label>
-                <br />
-                <textarea
-                    id="content"
-                    name="content"
-                    required
-                    value={content}
-                    onChange={(e) => setContent(e.target.value)}
-                ></textarea>
-                <br />
+                            <div className="w-full lg:w-6/12 px-4">
+                                <div className="relative w-full mb-3">
+                                    <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
+                                        Apellido
+                                    </label>
+                                    <input type="text" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" id="apellido" name="apellido" required onChange={(e) => setApellido(e.target.value)} value={apellido}  />
+                                </div>
+                            </div>
 
-                <input type="submit" value="Submit"></input>
-            </form>
+                            <div className="w-full lg:w-6/12 px-4">
+                                <div className="relative w-full mb-3">
+                                    <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
+                                        Dni
+                                    </label>
+                                    <input type="number" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" id="dni" name="dni" required onChange={(e) => setDni(e.target.value)} value={dni}  />
+                                </div>
+                            </div>
+
+                            <div className="w-full lg:w-6/12 px-4">
+                                <div className="relative w-full mb-3">
+                                    <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
+                                        Teléfono
+                                    </label>
+                                    <input type="number" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" id="telefono" name="telefono" required onChange={(e) => setTelefono(e.target.value)} value={telefono}  />
+                                </div>
+                            </div>
+
+                            
+
+                    
+                            
+                        </div>
+
+                        <hr className="mt-6 border-b-1 border-blueGray-300"></hr>
+
+                        <h6 className="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+                            Motivo de la visita 
+                        </h6>
+                        <div className="flex flex-wrap">
+                            <div className="w-full lg:w-12/12 px-4">
+                                <div className="relative w-full mb-3">
+                                <textarea id="content" name="content" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" rows="4" required value={content} onChange={(e) => setContent(e.target.value)}></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="submit" value="Submit"></input>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+
+
+
 
     </div>
 }
