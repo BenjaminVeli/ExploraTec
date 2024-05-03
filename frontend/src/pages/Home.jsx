@@ -42,7 +42,6 @@ function Home() {
             <HeaderAuth handleLogout={handleLogout} />
 
             <div>
-                <h2>Notes</h2>
                 {notes.map((note) => (
                     <Note note={note} onDelete={deleteNote} key={note.id} />
                 ))}

@@ -116,7 +116,11 @@ function CreateForm() {
                             </div>
                         </div>
 
-                        <input type="submit" value="Submit"></input>
+                        <div className="md:col-span-5 text-right">
+                            <div className="inline-flex items-end">
+                                <button type="submit" className="button--submit text-white font-bold py-2 px-4 rounded">Enviar</button>
+                            </div>
+                        </div>
 
                     </form>
 

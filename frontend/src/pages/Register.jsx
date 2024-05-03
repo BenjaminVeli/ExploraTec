@@ -63,7 +63,7 @@ function Register() {
                 </div>
                 <div className="input-field">
                   <button className="submit" type="submit">
-                    Registrarse
+                    REGISTRARSE
                   </button>
                 </div>
                 <div className="signin">
