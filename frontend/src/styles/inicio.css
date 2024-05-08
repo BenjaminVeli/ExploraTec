@@ -1,0 +1,65 @@
+#entrada-principal {
+    background: url("../img//principal.png");
+    background-position: center;
+    background-size: cover;
+}
+
+
+.section--entrada--principal {
+    min-height: 92vh ;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.section--entrada__h1{
+    font-size: 5rem;
+    color: white;
+    text-transform: uppercase ;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+
+.section--entrada__h5{
+    font-size: 1.5rem;
+    color: white;
+    text-transform: uppercase ;
+    font-family: sans-serif;
+    font-weight: 600;
+    margin-bottom: 3rem;
+}
+
+
+/* BTN */
+.btn {
+    font-weight: 600;
+    font-size: 18px;
+    text-transform: uppercase;
+    border-radius: 0;
+    padding: 10px 24px;
+    border-radius: 5%;
+    font-weight: 700;
+    border-bottom-width: 4px;
+}
+
+.btn-begin {
+    background-color: #4e57d4;
+    border-color: #3037a1;
+    color: white;
+}
+
+.btn-begin:hover {
+    background-color: #3037a1;
+    border-color: #3037a1;
+    color: white;
+    transition: 0.8s;
+}
+
+@media (max-width:800px){
+    .section--entrada__h1{
+        font-size: 3rem;
+    }
+    .section--entrada__h5{
+        font-size: 1rem;
+    }
+}
