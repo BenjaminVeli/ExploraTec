@@ -1,39 +1,49 @@
-import { Link } from "react-router-dom";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import menuIcon from '../assets/menu.svg';
 
-import "../styles/header.css";
-import menuIcon from "../assets/menu.svg";
+function MenuItem({ title, link, children }) {
+  const [isActive, setIsActive] = useState(false);
 
-function Header() {
-    return (
-        <header>
-            <nav className="menu">
-                <section className="menu__container">
-                    <h1 className="menu__logo">E X P L O R A T E C</h1>
+  const handleClick = () => {
+    setIsActive(!isActive);
+  };
 
-                    <ul className="menu__links">
-                        <li className="menu__item">
-                            <a href="*" className="menu__link">Inicio</a>
-                        </li>
-
-                        <li className="menu__item">
-                            <Link to="/login" className="menu__link">Iniciar sesión</Link>
-                        </li>
-
-                        <li className="menu__item">
-                            <Link to="/register" className="menu__link">Registro</Link>
-                        </li>
-
-                    </ul>
-
-                    <div className="menu__hamburguer">
-                        <img src={menuIcon} alt="menu" className="menu__icon" />
-                    </div>
-                </section>
-            </nav>
-
-            <script src="header.js"></script>
-        </header>
-    );
+  return (
+    <li className={`menu__item`} onClick={handleClick}>
+      <Link to={link} className="menu__link">
+        {title}
+      </Link>
+      <ul className="menu__nesting" style={{ height: isActive ? 'auto' : 0 }}>
+        {children}
+      </ul>
+    </li>
+  );
 }
 
-export default Header;
+
+function Header() {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+    const toggleMenu = () => {
+      setIsMenuOpen(!isMenuOpen);
+    };
+  
+    return (
+      <header>
+        <nav className="menu">
+          <section className="menu__container">
+            <h1 className="menu__logo">E X P L O R A T E C</h1>
+            <ul className={`menu__links ${isMenuOpen ? 'menu__links--show' : ''}`}>
+            <MenuItem title="Inicio" link="/" />
+            </ul>
+            <div className="menu__hamburguer" onClick={toggleMenu}>
+                <img src={menuIcon} alt="menu" className="menu__icon" />
+            </div>
+          </section>
+        </nav>
+      </header>
+    );
+  }
+  
+  export default Header;

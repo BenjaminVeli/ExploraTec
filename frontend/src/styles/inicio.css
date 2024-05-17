@@ -43,13 +43,14 @@
 }
 
 .btn-begin {
-    background-color: #4e57d4;
+    background-color: #2f3ad4;
     border-color: #3037a1;
     color: white;
+    text-decoration: none;
 }
 
 .btn-begin:hover {
-    background-color: #3037a1;
+    background-color: rgb(45, 52, 145);
     border-color: #3037a1;
     color: white;
     transition: 0.8s;
