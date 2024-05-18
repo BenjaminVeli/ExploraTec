@@ -2,6 +2,12 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
+class Especialidad(models.Model):
+    nombre = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.nombre
+
 class Note(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
@@ -10,6 +16,7 @@ class Note(models.Model):
     dni = models.CharField(max_length=100, default="")
     telefono = models.CharField(max_length=100, default="")
     apellido = models.CharField(max_length=100, default="")
+    especialidad = models.ForeignKey(Especialidad, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title

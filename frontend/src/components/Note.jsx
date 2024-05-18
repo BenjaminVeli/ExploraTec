@@ -9,9 +9,10 @@ function Note({ note, onDelete }) {
             <div className="note-container">
                 <p className="note-title">Nombre: {note.title}</p>
                 <p className="note-apellido">Apellido: {note.apellido}</p>
-                <p className="note-content">Motivo de la visita: {note.content}</p>
                 <p className="note-dni">Dni: {note.dni}</p>
                 <p className="note-telefono">Teléfono: {note.telefono}</p>
+                <p className="note-especialidad">Especialidad: {note.especialidad}</p>
+                <p className="note-content">Motivo de la visita: {note.content}</p>
                 <p className="note-date">{formattedDate}</p>
                 <button className="delete-button" onClick={() => onDelete(note.id)}>
                     DELETE

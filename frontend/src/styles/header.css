@@ -28,7 +28,7 @@ body {
 }
 
 .menu__links {
-    height: 75px;
+    height: 70px;
     transition: transform .5s;
     display: flex;
 }

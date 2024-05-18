@@ -43,8 +43,7 @@ function Form({ route }) {
 
       <div className="wrapper">
         <div className="container main">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="row">
+        <form onSubmit={handleSubmit(onSubmit)} className="row">
             <div className="col-md-6 side-image--login">
               <div className="text">
                 <p>EXPLORATEC</p>
@@ -78,7 +77,6 @@ function Form({ route }) {
                 </div>
               </div>
             </div>   
-          </div>
         </form>
         </div>
       </div>

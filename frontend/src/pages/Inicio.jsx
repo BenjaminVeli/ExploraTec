@@ -1,4 +1,5 @@
 import Header from "../components/Header"
+import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 
 
@@ -17,7 +18,11 @@ function Inicio() {
                     </div>
             </div>
         </section>
-        
+        <section id="btn--Register--Login">
+            
+        </section>
+    
+        <Footer />
 
     </div>
 }

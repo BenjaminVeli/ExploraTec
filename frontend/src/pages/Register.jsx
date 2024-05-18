@@ -37,8 +37,7 @@ function Register() {
 
       <div className="wrapper">
         <div className="container main">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="row">
+        <form onSubmit={handleSubmit(onSubmit)} className="row">
             <div className="col-md-6 side-image--register">
               <div className="text">
                 <p>EXPLORATEC</p>
@@ -71,7 +70,6 @@ function Register() {
                 </div>
               </div>
             </div>   
-          </div>
         </form>
         </div>
       </div>

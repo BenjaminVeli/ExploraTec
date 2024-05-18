@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from rest_framework import generics
-from .serializers import UserSerializer, NoteSerializer
+from .serializers import UserSerializer, NoteSerializer , EspecialidadSerializer
 from rest_framework.permissions import IsAuthenticated, AllowAny
-from .models import Note
+from .models import Note , Especialidad
 
 
 class NoteListCreate(generics.ListCreateAPIView):
@@ -19,6 +19,17 @@ class NoteListCreate(generics.ListCreateAPIView):
             serializer.save(author=self.request.user)
         else:
             print(serializer.errors)
+
+class EspecialidadListCreate(generics.ListCreateAPIView):
+    serializer_class = EspecialidadSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return Especialidad.objects.all()
+
+    def perform_create(self, serializer):
+        serializer.save()
+
 
 
 class NoteDelete(generics.DestroyAPIView):
