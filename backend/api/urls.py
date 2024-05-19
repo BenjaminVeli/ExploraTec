@@ -5,4 +5,5 @@ urlpatterns = [
     path("notes/", views.NoteListCreate.as_view(), name="note-list"),
     path("notes/delete/<int:pk>/", views.NoteDelete.as_view(), name="delete_note"),
     path("especialidades/", views.EspecialidadListCreate.as_view(), name="especialidad-list"),
+    path('especialidad-stats/', views.EspecialidadStatsView.as_view(), name='especialidad-stats'),
 ]
