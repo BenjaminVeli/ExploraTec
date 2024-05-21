@@ -1,18 +1,120 @@
 .note-container{
   background: #3876BF;
-  padding: 35px 70px;
+  padding: 25px 50px;
   border: 2px solid rgba(0,0,0,1);
   box-shadow: 15px 15px 1px #222831, 15px 15px 1px 2px rgba(0,0,0,1);
-  width: 300px;
+  width: 420px;
   color: #EEF5FF;
   font-family: "Inter", sans-serif;
   float: left;
   margin: 40px;
   font-size: 14px;
-  height: 250px;
+  height: 280px;
   word-wrap: break-word;
   overflow: auto;
 }
+
+.note--text{
+  margin-top: 5px;
+}
+
+.note--text--status{
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding: 20px 50px;
+  border: 3px solid;
+}
+
+.note--text--status.accepted:hover{
+  background-color: #001a2b;
+  color: #45ff17;
+  box-shadow: 0 0 20px #45ff17;
+  border-color: #59ff17;
+}
+
+.accepted span:nth-child(n){
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border: 3px solid;
+  transition: all 0.6s ease;
+}
+
+.accepted span:nth-child(1){
+  right: 10%;
+  top: -10px;
+  background-color: #fff;
+}
+
+.accepted span:nth-child(2){
+  left: 10%;
+  bottom: -10px;
+}
+
+.accepted:hover span:nth-child(1){
+  right: 80%;
+  transform: rotate(90deg);
+  color: var(--color);
+  background-color: var(--color);
+  
+}
+
+.accepted:hover span:nth-child(2){
+  left: 80%;
+  transform: rotate(90deg);
+  color: var(--color);
+}
+
+
+
+
+.note--text--status.pending:hover{
+  background-color: #001a2b;
+  box-shadow: 0 0 20px #ff1f17;
+  border-color: #ff1f17;
+  color: #ff1f17;
+}
+
+.pending span:nth-child(n){
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border: 3px solid;
+  transition: all 0.6s ease;
+}
+
+.pending span:nth-child(1){
+  right: 10%;
+  top: -10px;
+  background-color: #fff;
+}
+
+.pending span:nth-child(2){
+  left: 10%;
+  bottom: -10px;
+}
+
+.pending:hover span:nth-child(1){
+  right: 80%;
+  transform: rotate(90deg);
+  color: var(--color);
+  background-color: var(--color);
+  
+}
+
+.pending:hover span:nth-child(2){
+  left: 80%;
+  transform: rotate(90deg);
+  color: var(--color);
+}
+
+
+
+
+
+
+
 
 .delete-button{
   display: block;

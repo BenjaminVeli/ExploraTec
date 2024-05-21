@@ -20,7 +20,7 @@ class EspecialidadSerializer(serializers.ModelSerializer):
 class NoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Note
-        fields = ["id", "title", "content", "created_at", "author", "dni", "telefono" , "apellido" , "especialidad"]
+        fields = ["id", "title", "content", "created_at", "author", "dni", "telefono" , "apellido" , "especialidad", "is_accepted"]
         extra_kwargs = {"author": {"read_only": True}}
         
     def create(self, validated_data):
