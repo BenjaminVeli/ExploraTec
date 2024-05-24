@@ -45,7 +45,7 @@ function Header() {
     <header>
       <nav className="menu">
         <section className="menu__container">
-          <h1 className="menu__logo">E X P L O R A T E C</h1>
+          <h2 className="menu__logo">E X P L O R A T E C</h2>
           <ul className={`menu__links ${isMenuOpen ? 'menu__links--show' : ''}`}>
             <MenuItem title="Inicio" link="/" />
           </ul>

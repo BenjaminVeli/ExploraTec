@@ -31,30 +31,60 @@
 
 
 /* BTN */
-.btn {
-    font-weight: 600;
-    font-size: 18px;
-    text-transform: uppercase;
-    border-radius: 0;
-    padding: 10px 24px;
-    border-radius: 5%;
-    font-weight: 700;
-    border-bottom-width: 4px;
-}
-
-.btn-begin {
-    background-color: #2f3ad4;
-    border-color: #3037a1;
-    color: white;
+.btn{
+    position: relative;
+    padding: 15px 40px;
     text-decoration: none;
+    color: #fff;
+    letter-spacing: 10px;
+    text-indent: 10px;
+    z-index: 2;
 }
 
-.btn-begin:hover {
-    background-color: rgb(45, 52, 145);
-    border-color: #3037a1;
-    color: white;
-    transition: 0.8s;
+
+
+.btn-begin{
+    transition: all 0.6s ease;
 }
+
+.btn-begin::after{
+    content: "";
+    position: absolute;
+    width: 10%;
+    height: 100%;
+    left: -10%;
+    top: 0;
+    transform: skew(20deg, 0deg);
+    background-color: #ffffff;
+    z-index: -1;
+    transition: all 0.4s ease;
+}
+
+.btn-begin::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transform: skew(20deg, 0deg);
+    border: 3px solid #03cc57;
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+.btn-begin:hover::after{
+    background-color: #ffffff31;
+    transform: skew(20deg, 0deg) translateX(240px);
+}
+
+.btn-begin:hover::before{
+    background-color: #03cc57;
+    border: 3px solid #029740;
+    transform: skew(20deg, 0deg) scale(1.1);
+}
+
+
 
 @media (max-width:800px){
     .section--entrada__h1{
