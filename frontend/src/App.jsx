@@ -3,6 +3,7 @@ import Login from "./pages/Login"
 import Register from "./pages/Register"
 import Home from "./pages/Home"
 import Inicio from "./pages/Inicio"
+import Tour from "./pages/Tour"
 import ProtectedRoute from "./components/ProtectedRoute"
 import CrearFormulario from "./pages/CreateForm"
 
@@ -38,6 +39,7 @@ function App() {
         />
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
+        <Route path="/tour" element={<Tour />} />
         <Route path="/register" element={<RegisterAndLogout />} />
         <Route path="*" element={<Inicio />}></Route>
       </Routes>

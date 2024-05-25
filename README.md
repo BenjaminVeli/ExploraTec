@@ -14,7 +14,7 @@ python manage.py runserver
 
 <!-- Front end -->
 cd frontend
-npm install vite --save-dev
+npm install pannellum-react --legacy-peer-deps
 npm install axios react-router-dom jwt-decode
 npm install react-hook-form
 npm install @hookform/resolvers zod

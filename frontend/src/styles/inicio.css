@@ -84,7 +84,91 @@
     transform: skew(20deg, 0deg) scale(1.1);
 }
 
+/* Section para los botones login y registro */
 
+.section--buttons-authentication{
+    height: 125px;
+    width: 100%;
+    background: #F5F7F8;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+/* Botones login y registro */
+
+.btn-neon {
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    color: #000000;
+    letter-spacing: 4px;
+    text-decoration: none;
+    font-size: 24px;
+    overflow: hidden;
+    transition: 0.2s;
+    font-family: consolas;
+    margin: 0 20px;
+}
+.btn-neon:hover {
+    background: #0055ff;
+    box-shadow: 0 0 10px #0055ff, 0 0 40px #0055ff, 0 0 80px #0055ff;
+    transition-delay: 1s;
+    color: #fff;
+}
+.btn-neon span {
+    position: absolute;
+    display: block;
+}
+#span1 {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #0055ff);
+}
+.btn-neon:hover #span1 {
+    left: 100%;
+    transition: 1s;
+}
+#span3 {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #0055ff);
+}
+.btn-neon:hover #span3 {
+    right: 100%;
+    transition: 1s;
+    transition-delay: 0.5s;
+}
+#span2 {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #0055ff);
+}
+.btn-neon:hover #span2 {
+    top: 100%;
+    transition: 1s;
+    transition-delay: 0.25s;
+}
+#span4 {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #0055ff);
+}
+.btn-neon:hover #span4 {
+    bottom: 100%;
+    transition: 1s;
+    transition-delay: 0.75s;
+}
+
+/*********************/
 
 @media (max-width:800px){
     .section--entrada__h1{
@@ -92,5 +176,12 @@
     }
     .section--entrada__h5{
         font-size: 1rem;
+    }
+    .btn-neon{
+        font-size: 20px;
+    }
+    .section--buttons-authentication {
+        height: auto; /* Ajusta la altura según el contenido */
+        flex-direction: column; /* Cambia a columna en pantallas pequeñas */
     }
 }
