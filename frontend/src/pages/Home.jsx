@@ -41,7 +41,7 @@ function Home() {
         <div className="class--home">
             <HeaderAuth handleLogout={handleLogout} />
 
-            <div>
+            <div className="grid__note--container">
                 {notes.map((note) => (
                     <Note note={note} onDelete={deleteNote} key={note.id} />
                 ))}

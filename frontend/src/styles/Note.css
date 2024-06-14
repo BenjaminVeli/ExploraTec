@@ -1,12 +1,11 @@
-.note-container{
-  background: #3876BF;
+.note-container {
+  background: #3876bf;
   padding: 25px 50px;
-  border: 2px solid rgba(0,0,0,1);
-  box-shadow: 15px 15px 1px #222831, 15px 15px 1px 2px rgba(0,0,0,1);
+  border: 2px solid rgba(0, 0, 0, 1);
+  box-shadow: 15px 15px 1px #222831, 15px 15px 1px 2px rgba(0, 0, 0, 1);
   width: 420px;
-  color: #EEF5FF;
+  color: #eef5ff;
   font-family: "Inter", sans-serif;
-  float: left;
   margin: 40px;
   font-size: 14px;
   height: 280px;
@@ -14,26 +13,27 @@
   overflow: auto;
 }
 
-.note--text{
+.note--text {
   margin-top: 5px;
 }
 
-.note--text--status{
+.note--text--status {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   position: relative;
   padding: 20px 50px;
   border: 3px solid;
+  text-align: center;
 }
 
-.note--text--status.accepted:hover{
+.note--text--status.accepted:hover {
   background-color: #001a2b;
   color: #45ff17;
   box-shadow: 0 0 20px #45ff17;
   border-color: #59ff17;
 }
 
-.accepted span:nth-child(n){
+.accepted span:nth-child(n) {
   position: absolute;
   width: 15px;
   height: 15px;
@@ -41,42 +41,38 @@
   transition: all 0.6s ease;
 }
 
-.accepted span:nth-child(1){
+.accepted span:nth-child(1) {
   right: 10%;
   top: -10px;
   background-color: #fff;
 }
 
-.accepted span:nth-child(2){
+.accepted span:nth-child(2) {
   left: 10%;
   bottom: -10px;
 }
 
-.accepted:hover span:nth-child(1){
+.accepted:hover span:nth-child(1) {
   right: 80%;
   transform: rotate(90deg);
   color: var(--color);
   background-color: var(--color);
-  
 }
 
-.accepted:hover span:nth-child(2){
+.accepted:hover span:nth-child(2) {
   left: 80%;
   transform: rotate(90deg);
   color: var(--color);
 }
 
-
-
-
-.note--text--status.pending:hover{
+.note--text--status.pending:hover {
   background-color: #001a2b;
   box-shadow: 0 0 20px #ff1f17;
   border-color: #ff1f17;
   color: #ff1f17;
 }
 
-.pending span:nth-child(n){
+.pending span:nth-child(n) {
   position: absolute;
   width: 15px;
   height: 15px;
@@ -84,57 +80,49 @@
   transition: all 0.6s ease;
 }
 
-.pending span:nth-child(1){
+.pending span:nth-child(1) {
   right: 10%;
   top: -10px;
   background-color: #fff;
 }
 
-.pending span:nth-child(2){
+.pending span:nth-child(2) {
   left: 10%;
   bottom: -10px;
 }
 
-.pending:hover span:nth-child(1){
+.pending:hover span:nth-child(1) {
   right: 80%;
   transform: rotate(90deg);
   color: var(--color);
   background-color: var(--color);
-  
 }
 
-.pending:hover span:nth-child(2){
+.pending:hover span:nth-child(2) {
   left: 80%;
   transform: rotate(90deg);
   color: var(--color);
 }
 
-
-
-
-
-
-
-
-.delete-button{
+.delete-button {
   display: block;
   margin: 0 auto;
   line-height: 38px;
   padding: 0 20px;
-  background: #B80000;
+  background: #b80000;
   letter-spacing: 2px;
-  transition: .2s all ease-in-out;
-  border: 1px solid rgba(0,0,0,1);
-  box-shadow: 3px 3px 1px 1px #750E21, 3px 3px 1px 2px rgba(0,0,0,1);
+  transition: 0.2s all ease-in-out;
+  border: 1px solid rgba(0, 0, 0, 1);
+  box-shadow: 3px 3px 1px 1px #750e21, 3px 3px 1px 2px rgba(0, 0, 0, 1);
 }
 
-.delete-button:hover{
-  background: rgba(0,0,0,1);
+.delete-button:hover {
+  background: rgba(0, 0, 0, 1);
   color: white;
-  border: 1px solid rgba(0,0,0,1);
+  border: 1px solid rgba(0, 0, 0, 1);
 }
 
-.delete-button::selection{
+.delete-button::selection {
   background: #ffc8ff;
 }
 
@@ -157,3 +145,29 @@
   background: transparent;
 }
 
+.grid__note--container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+@media (max-width: 1280px) {
+  .grid__note--container {
+    grid-template-columns: auto auto;
+  }
+}
+
+@media (max-width: 800px) {
+  .note-container {
+    width: 330px;
+    height: 280px;
+  }
+  .note--text--status {
+    padding: 20px 10px;
+  }
+  .grid__note--container {
+    grid-template-columns: auto;
+  }
+}
