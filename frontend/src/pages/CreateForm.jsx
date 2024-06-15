@@ -53,11 +53,18 @@ function CreateForm() {
                 especialidad: selectedEspecialidad 
             })
             .then((res) => {
-                if (res.status === 201) alert("Note created!");
-                else alert("Failed to make note.");
+                if (res.status === 201) alert("Registro Exitoso!");
+                else alert("No se pudo realizar el registro.");
                 getNotes();
             })
-            .catch((err) => alert(err));
+            .catch((err) => {
+                if (err.response && err.response.data && err.response.data.detail) {
+                    window.alert(err.response.data.detail);
+                } else {
+                    console.error("Error al crear la nota:", err);
+                    window.alert("Espere la aprobación del registro anterior.");
+                }
+            });
     };
 
     return (
