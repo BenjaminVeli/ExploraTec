@@ -1,6 +1,6 @@
 ### EXPLORATEC - TOUR 360° DEL CAMPUS SEDE LIMA EN TECSUP
 
-Tour 360° del Campus Sede Lima en Tecsup
+360° Tour of the Lima Campus at Tecsup
 
 ### Crear entorno virtual :
 
