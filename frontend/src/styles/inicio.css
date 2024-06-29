@@ -4,7 +4,7 @@
     background-size: cover;
 }
 
-
+/* Section Entrada */
 .section--entrada--principal {
     min-height: 92vh ;
     display: flex;
@@ -35,7 +35,7 @@
     position: relative;
     padding: 15px 40px;
     text-decoration: none;
-    color: #fff;
+    color: #ffffff;
     letter-spacing: 10px;
     text-indent: 10px;
     z-index: 2;
@@ -84,16 +84,7 @@
     transform: skew(20deg, 0deg) scale(1.1);
 }
 
-/* Section para los botones login y registro */
 
-.section--buttons-authentication{
-    height: 125px;
-    width: 100%;
-    background: #F5F7F8;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-}
 
 /* Botones login y registro */
 
@@ -108,7 +99,9 @@
     overflow: hidden;
     transition: 0.2s;
     font-family: consolas;
-    margin: 0 20px;
+    margin: 0 auto;
+    margin-top: 30px;
+    
 }
 .btn-neon:hover {
     background: #0055ff;
@@ -168,6 +161,8 @@
     transition-delay: 0.75s;
 }
 
+
+
 /*********************/
 
 @media (max-width:800px){
@@ -179,6 +174,7 @@
     }
     .btn-neon{
         font-size: 20px;
+        margin: 0 20px;
     }
     .section--buttons-authentication {
         height: auto; /* Ajusta la altura según el contenido */
