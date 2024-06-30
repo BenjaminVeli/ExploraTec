@@ -78,7 +78,7 @@ function Estadisticas() {
             <table className="estadisticas-table">
                 <thead>
                     <tr>
-                        <th>Especialidad</th>
+                        <th>Carreras</th>
                         <th>Conteo</th>
                     </tr>
                 </thead>

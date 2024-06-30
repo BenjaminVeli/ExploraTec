@@ -6,6 +6,7 @@ import Estadisticas from "../components/Estadisticas"
 import "../styles/inicio.css";
 import visitImg from "../img/visit.jpg"
 import adversting from "../img/adversting.jpg"
+import tecsupLima from "../img/TecsupLima.png"
 
 function Inicio() {
     return (
@@ -14,13 +15,16 @@ function Inicio() {
             
             <section id="entrada-principal" className="section--entrada--principal">
                 <div className="container">
-                    <h1 className="section--entrada__h1">Bienvenido a Exloratec</h1>
-                    <h5 className="section--entrada__h5">Tour 360° del campus Lima</h5>
+                    <h1 className="section--entrada__h1">Exploratec</h1>
                     <div data-aos="fade-up">
                         <Link to="/tour" className="btn btn-begin">Empezar</Link>
                     </div>
                 </div>
             </section>
+            
+            
+
+            <img className="w-full"src={tecsupLima} />
 
             <section className="bg-white dark:bg-gray-900">
                 <div className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
@@ -49,9 +53,14 @@ function Inicio() {
                 </div>
             </section>
 
-
             <section id="estadisticas" className="section--estadisticas">
                 <div className="container">
+                    <div className="mb-10 mt-10 flex flex-col items-center">
+                        <h4 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">¿Por qué mostramos estas estadísticas?</h4>
+                        <p className="mb-4"> En esta sección, presentamos las estadísticas de las carreras que nuestros visitantes han seleccionado al inscribirse para nuestras
+                        visitas guiadas presenciales. Esta información nos ayuda a entender mejor los intereses de nuestros futuros estudiantes y a preparar
+                        experiencias más personalizadas y relevantes durante las visitas.</p>
+                    </div>
                     <Estadisticas />
                 </div>
             </section>
