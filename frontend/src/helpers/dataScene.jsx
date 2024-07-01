@@ -12,12 +12,6 @@ const Scene = {
         pitch: -11,
         yaw: -3,
         hotSpots: {
-            plane: {
-                type: 'custom',
-                pitch: -8,
-                yaw: 126,
-                cssClass: 'hotSpotElement'
-            },
             nextScene: {
                 type: 'custom',
                 pitch: 8,

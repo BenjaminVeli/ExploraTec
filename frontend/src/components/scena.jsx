@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Pannellum } from 'pannellum-react';
 import dataScene from '../helpers/dataScene';
+import Modal from './Modal'
 import '../styles/scena.css';
 export default function Scene() {
     const [scene, setScene] = useState(dataScene['insideOne']);
@@ -26,6 +27,16 @@ export default function Scene() {
         )
         
     }
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => {
+      setIsModalOpen(true);
+    };
+  
+    const closeModal = () => {
+      setIsModalOpen(false);
+    };
     
     return (
         <>
@@ -35,7 +46,16 @@ export default function Scene() {
                         {dataScene[key].title}
                     </button>
                 ))}
+                <div className="">
+                    <button onClick={openModal} className="px-4 py-2 bg-blue-500 text-white rounded-md">
+                    Guía de Uso
+                    </button>
+                    {isModalOpen && <Modal closeModal={closeModal} />}
+                </div>
             </div>
+
+
+
             <Pannellum
                 width={'100%'}
                 height={'100vh'}
@@ -49,7 +69,6 @@ export default function Scene() {
                 showFullscreenCtrl={false}
                 showZoomCtrl={false}
                 orientationOnByDefault={true}
-                hotspotDebug={true}
             >
                 {Object.values(scene.hotSpots).map((Element, i) => 
                     hotSpots(Element, i)
