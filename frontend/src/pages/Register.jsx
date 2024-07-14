@@ -47,6 +47,13 @@ function Register() {
               <div className="input-box">
                 <h2>Regístrate</h2>
                 <div className="input-field">
+                  <input className="input" required type="email" {...register("email", { required: true })} />
+                  <label >Email</label> 
+                  {errors.email?.message && (
+                    <p className="error-message">{errors.email?.message}</p>
+                  )}
+                </div>
+                <div className="input-field">
                   <input className="input" required type="text" {...register("username", { required: true })} />
                   <label >Usuario</label> 
                   {errors.username?.message && (

@@ -10,6 +10,10 @@ export const loginSchema = z.object({
 });
 
 export const registerSchema = z.object({
+  email: z
+    .string()
+    .email("Debe ser un correo electrónico válido")
+    .min(1, "El correo electrónico es requerido"),
   username: z
     .string()
     .min(1, "El nombre de usuario es requerido")

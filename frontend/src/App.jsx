@@ -6,6 +6,7 @@ import Inicio from "./pages/Inicio"
 import Tour from "./pages/Tour"
 import ProtectedRoute from "./components/ProtectedRoute"
 import CrearFormulario from "./pages/CreateForm"
+import Homeadmin from "./pages/Home-admin"
 
 function Logout() {
   localStorage.clear()
@@ -37,6 +38,15 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route 
+          path="/home-admin"
+          element={
+            <ProtectedRoute>
+              <Homeadmin/>
+            </ProtectedRoute>
+          }
+        />
+
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/tour" element={<Tour />} />

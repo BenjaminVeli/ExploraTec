@@ -38,8 +38,9 @@ function Home() {
     };
 
     return (
+        
         <div className="class--home">
-            <HeaderAuth handleLogout={handleLogout} />
+        <HeaderAuth handleLogout={handleLogout} />    
 
             <div className="grid__note--container">
                 {notes.map((note) => (

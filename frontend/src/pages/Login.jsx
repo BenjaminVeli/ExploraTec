@@ -1,69 +1,90 @@
-import Form from "../components/Form"
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import api from "../api";
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { loginSchema } from "../schemas/auth";
+
+import Header from "../components/Header";
+import "../styles/Form.css";
 
 function Login() {
-    return <Form route="/api/token/" method="login" />
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    resolver: zodResolver(loginSchema),
+  });
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(""); // Estado para almacenar el mensaje de error
+  const navigate = useNavigate();
+
+  const onSubmit = async ({ username, password }) => {
+    setLoading(true);
+
+    try {
+      const res = await api.post("/api/token/", { username, password });
+      localStorage.setItem(ACCESS_TOKEN, res.data.access);
+      localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
+
+
+      navigate("/formulario");
+
+      
+    } catch (error) {
+      if (error.response && error.response.status === 401) {
+        setErrorMessage("Las credenciales son incorrectas.");
+      } else {
+        setErrorMessage("Ocurrió un error al intentar iniciar sesión. Por favor, inténtalo de nuevo más tarde.");
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div>
+      <Header />
+
+      <div className="wrapper">
+        <div className="container main">
+          <form onSubmit={handleSubmit(onSubmit)} className="row">
+            <div className="col-md-6 side-image--login">
+              <div className="text">
+                <p>EXPLORATEC</p>
+              </div>
+            </div>
+            <div className="col-md-6 right">
+              <div className="input-box">
+                <h2>Iniciar sesión</h2>
+                <div className="input-field">
+                  <input className="input" required type="text" {...register("username", { required: true })} />
+                  <label>Usuario</label>
+                  {errors.username?.message && (
+                    <p className="error-message">{errors.username?.message}</p>
+                  )}
+                </div>
+                <div className="input-field">
+                  <input className="input" required type="password" {...register("password", { required: true })} />
+                  <label>Contraseña</label>
+                  {errors.password?.message && (
+                    <p className="error-message">{errors.password?.message}</p>
+                  )}
+                </div>
+                <div className="input-field">
+                  <button className="submit" type="submit" disabled={loading}>
+                    {loading ? "Cargando..." : "INGRESAR"}
+                  </button>
+                </div>
+                <div className="signin">
+                  <span>No tienes una cuenta? <Link to="/register">Regístrate</Link></span>
+                  {errorMessage && <p className="error-message">{errorMessage}</p>}
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default Login
-
-
-
-
-
-
-
-
-
-// import { useState } from "react";
-// import api from "../api";
-// import { useNavigate } from "react-router-dom";
-// import "../styles/Form.css"
-
-// function Login() {
-//   const [username, setUsername] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [loading, setLoading] = useState(false);
-//   const navigate = useNavigate();
-
-//   const handleSubmit = async (e) => {
-//     setLoading(true);
-//     e.preventDefault();
-
-//     try {
-//       const res = await api.post("/api/token/", { username, password });
-//       localStorage.setItem("ACCESS_TOKEN", res.data.access);
-//       localStorage.setItem("REFRESH_TOKEN", res.data.refresh);
-//       navigate("/");
-//     } catch (error) {
-//       console.log("Error al iniciar sesión:", error); 
-//       alert("Error al iniciar sesión. Por favor, intenta de nuevo."); 
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
-
-//   return (
-//     <form onSubmit={handleSubmit} className="form-container">
-//       <h1>Login</h1>
-//       <input
-//         className="form-input"
-//         type="text"
-//         value={username}
-//         onChange={(e) => setUsername(e.target.value)}
-//         placeholder="Username"
-//       />
-//       <input
-//         className="form-input"
-//         type="password"
-//         value={password}
-//         onChange={(e) => setPassword(e.target.value)}
-//         placeholder="Password"
-//       />
-//       <button className="form-button" type="submit">
-//         Login
-//       </button>
-//     </form>
-//   );
-// }
-
-// export default Login;
+export default Login;
