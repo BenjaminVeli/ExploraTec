@@ -14,7 +14,7 @@ function Login() {
     resolver: zodResolver(loginSchema),
   });
   const [loading, setLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState(""); // Estado para almacenar el mensaje de error
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   const onSubmit = async ({ username, password }) => {
@@ -25,9 +25,20 @@ function Login() {
       localStorage.setItem(ACCESS_TOKEN, res.data.access);
       localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
 
+      // Obtener los datos del usuario actual
+      const userRes = await api.get("/api/current-user/", {
+        headers: {
+          Authorization: `Bearer ${res.data.access}`,
+        },
+      });
 
-      navigate("/formulario");
+      const user = userRes.data;
 
+      if (user.is_superuser) {
+        navigate("/home-admin");
+      } else {
+        navigate("/formulario");
+      }
       
     } catch (error) {
       if (error.response && error.response.status === 401) {

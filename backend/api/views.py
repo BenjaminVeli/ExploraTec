@@ -7,6 +7,7 @@ from django.db.models import Count
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import Note, Especialidad
+from .permissions import IsSuperUser
 
 
 class NoteListCreate(generics.ListCreateAPIView):
@@ -23,6 +24,7 @@ class NoteListCreate(generics.ListCreateAPIView):
         else:
             print(serializer.errors)
 
+
 class EspecialidadListCreate(generics.ListCreateAPIView):
     serializer_class = EspecialidadSerializer
     permission_classes = [IsAuthenticated]
@@ -32,7 +34,6 @@ class EspecialidadListCreate(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save()
-
 
 
 class NoteDelete(generics.DestroyAPIView):
@@ -48,6 +49,7 @@ class CreateUserView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = [AllowAny]
+    
     
 class EspecialidadStatsView(APIView):
     permission_classes = [AllowAny] 
@@ -65,3 +67,17 @@ class EspecialidadStatsView(APIView):
             })
         
         return Response(all_stats)
+
+
+class UserListView(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [IsSuperUser]
+    
+    
+class CurrentUserView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        serializer = UserSerializer(request.user)
+        return Response(serializer.data)
