@@ -8,5 +8,6 @@ urlpatterns = [
     path("especialidades/", views.EspecialidadListCreate.as_view(), name="especialidad-list"),
     path('especialidad-stats/', views.EspecialidadStatsView.as_view(), name='especialidad-stats'),
     path('users/', views.UserListView.as_view(), name='user-list'),
+    path('users/<int:pk>/', views.UserDetailView.as_view(), name='user-detail'),
     path('current-user/', CurrentUserView.as_view(), name='current-user'),
 ]

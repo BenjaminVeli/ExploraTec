@@ -25,6 +25,17 @@ class NoteListCreate(generics.ListCreateAPIView):
             print(serializer.errors)
 
 
+class NoteDelete(generics.DestroyAPIView):
+    serializer_class = NoteSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        user = self.request.user
+        return Note.objects.filter(author=user)
+    
+    
+    
+    
 class EspecialidadListCreate(generics.ListCreateAPIView):
     serializer_class = EspecialidadSerializer
     permission_classes = [IsAuthenticated]
@@ -36,21 +47,6 @@ class EspecialidadListCreate(generics.ListCreateAPIView):
         serializer.save()
 
 
-class NoteDelete(generics.DestroyAPIView):
-    serializer_class = NoteSerializer
-    permission_classes = [IsAuthenticated]
-
-    def get_queryset(self):
-        user = self.request.user
-        return Note.objects.filter(author=user)
-
-
-class CreateUserView(generics.CreateAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-    permission_classes = [AllowAny]
-    
-    
 class EspecialidadStatsView(APIView):
     permission_classes = [AllowAny] 
 
@@ -69,12 +65,26 @@ class EspecialidadStatsView(APIView):
         return Response(all_stats)
 
 
+
+
 class UserListView(generics.ListAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = [IsSuperUser]
     
     
+class UserDetailView(generics.RetrieveUpdateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [IsSuperUser]
+    
+    
+class CreateUserView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [AllowAny]
+
+
 class CurrentUserView(APIView):
     permission_classes = [IsAuthenticated]
 

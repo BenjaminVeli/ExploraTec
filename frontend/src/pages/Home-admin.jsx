@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import api from "../api";
 import "../styles/crud.css"
+import Modal from '../components/Modal-edit'
+import '../styles/scena.css';
 
 function Homeadmin() {
   const [users, setUsers] = useState([]);
+  const [selectedUserId, setSelectedUserId] = useState(null); // Estado para almacenar el ID del usuario seleccionado
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -17,6 +20,18 @@ function Homeadmin() {
 
     fetchUsers();
   }, []);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = (userId) => {
+    setSelectedUserId(userId); // Almacena el ID del usuario seleccionado
+    setIsModalOpen(true);
+  };
+  
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedUserId(null); // Limpia el ID del usuario seleccionado cuando se cierra el modal
+  };
 
   return (
     <div className="container--crud">
@@ -39,7 +54,10 @@ function Homeadmin() {
                   <td className="table-name">{user.username}</td>
                   <td className="table-email">{user.email}</td>
                   <td className='table-actions'>
-                    <p className='btns btn-primary' href="">Editar</p>
+                    <button onClick={() => openModal(user.id)} className="btns btn-primary">Editar</button>
+                    {isModalOpen && selectedUserId === user.id && (
+                      <Modal userId={selectedUserId} closeModal={closeModal} />
+                    )}
                     <p className='btns btn-warning' href="">Eliminar</p>
                   </td>
                 </tr>

@@ -1,5 +1,4 @@
 import React from 'react';
-import bx from '../assets/bx-x.svg';
 import "../styles/Modal.css";
 import tutorial360 from '../assets/videos/tutorial360.mp4'; 
 

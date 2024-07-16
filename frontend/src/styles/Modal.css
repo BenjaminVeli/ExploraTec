@@ -11,6 +11,17 @@
     backdrop-filter: blur(10px); 
 }
 
+.modal-dialog-edit{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .modal-content{
     background: #fff;
     border-radius: 6px;

@@ -2,20 +2,31 @@ from django.contrib.auth.models import User
 from rest_framework import serializers
 from .models import Note, Especialidad
 
+
+
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ["id", "email", "username", "password", "is_superuser"]
-        extra_kwargs = {"password": {"write_only": True}}
-    
+        extra_kwargs = {"password": {"write_only": True, "required": False}}
+
     def create(self, validated_data):
         user = User.objects.create_user(**validated_data)
         return user
+    
+    def update(self, instance, validated_data):
+        validated_data.pop('password', None)
+        return super().update(instance, validated_data)
+    
+
     
 class EspecialidadSerializer(serializers.ModelSerializer):
     class Meta:
         model = Especialidad
         fields = ["id", "nombre"]
+
+
+
 
 class NoteSerializer(serializers.ModelSerializer):
     class Meta:
@@ -32,7 +43,7 @@ class NoteSerializer(serializers.ModelSerializer):
 
         current_accepted_count = Note.objects.filter(is_accepted=True).count()
         
-        if current_accepted_count >= 6:
+        if current_accepted_count >= 3:
             raise serializers.ValidationError("Se ha alcanzado el límite de formularios aceptados.")
         return attrs
 
